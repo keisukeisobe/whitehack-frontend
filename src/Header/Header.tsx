@@ -1,7 +1,8 @@
 import React, {Component, ComponentType, useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
-function Header() {
 
+function Header(props: {authenticated: boolean}) {
+  console.log(props.authenticated);
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <Link className="navbar-brand" to="https://www.reddit.com/r/Whitehack/">SW</Link>

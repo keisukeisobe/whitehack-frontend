@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {Component, ComponentType, useState, useEffect} from 'react';
-import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
+import {Route, BrowserRouter as Switch, Redirect} from 'react-router-dom';
 import './App.css';
 import './bootstrap.min.css';
 import './customrobo.css';
+import TokenService from '../services/token-service';
 import Header from '../Header/Header';
 
 //if user is NOT authenticated, take them to the main page
@@ -31,40 +32,25 @@ function PublicRoute(component: Component, authenticated: boolean){
 }
 
 function App() {
-  // const [authenticated, setAuthenticated] = useState(false);
-  // const [loading, setLoading] = useState(true);
+  const [authenticated, setAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-  // useEffect( () => {
-    
-  // })
+  useEffect( () => {
+    if (TokenService.hasAuthToken()) {
+      setAuthenticated(true);
+    } else {
+      setAuthenticated(false);
+    }
+  }, [])
 
   return (
     <div className='App'>
       <header className='Header'>
-        <Header />
+        <Header authenticated={authenticated} />
       </header>
-      <Router>
         <Switch>
         </Switch>
-    </Router>
     </div>
-
-
-    // <div className="App">
-    //   <header className="App-header">
-    //     <p>
-    //       Edit <code>src/App.tsx</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 
