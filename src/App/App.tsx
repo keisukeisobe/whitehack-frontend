@@ -41,43 +41,31 @@ function PublicRoute(component: Component, authenticated: boolean) {
 }
 
 function App() {
-  // const [authenticated, setAuthenticated] = useState(false);
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect( () => {
-
-  // })
+  const [authenticated, setAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect( () => {
+    if (TokenService.hasAuthToken()) {
+      setAuthenticated(true);
+    } else {
+      setAuthenticated(false);
+    }
+  }, [])
 
   return (
-    <div className="App">
-      <header className="Header">
-        <Header />
+    <div className='App'>
+      <header className='Header'>
+        <Header authenticated={authenticated} />
       </header>
-      <Switch>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/chargen">
-          <Chargen />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/chargen">
+            <Chargen />
+          </Route>
+        </Switch>
     </div>
-
-    // <div className="App">
-    //   <header className="App-header">
-    //     <p>
-    //       Edit <code>src/App.tsx</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 
