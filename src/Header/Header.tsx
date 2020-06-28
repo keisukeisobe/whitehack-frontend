@@ -1,7 +1,7 @@
-import React, {Component, ComponentType, useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import React, { Component, ComponentType, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-function Header(props: {authenticated: boolean}) {
+function Header(props: { authenticated: boolean }) {
   console.log(props.authenticated);
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -40,6 +40,16 @@ function Header(props: {authenticated: boolean}) {
           <li className="nav-item">
             <Link className="nav-link" to="/about">
               About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/API">
+              API
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/charform">
+              CharForm
             </Link>
           </li>
         </ul>

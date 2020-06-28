@@ -7,6 +7,9 @@ import "./customrobo.css";
 import Header from "../Header/Header";
 import About from "../Pages/about";
 import Chargen from "../Pages/chargen";
+import API from "../Pages/api";
+import EquipmentForm from "../Pages/charform";
+import TokenService from "../services/token-service";
 
 //if user is NOT authenticated, take them to the main page
 function PrivateRoute(component: Component, authenticated: boolean) {
@@ -43,28 +46,34 @@ function PublicRoute(component: Component, authenticated: boolean) {
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
-  
-  useEffect( () => {
+
+  useEffect(() => {
     if (TokenService.hasAuthToken()) {
       setAuthenticated(true);
     } else {
       setAuthenticated(false);
     }
-  }, [])
+  }, []);
 
   return (
-    <div className='App'>
-      <header className='Header'>
+    <div className="App">
+      <header className="Header">
         <Header authenticated={authenticated} />
       </header>
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/chargen">
-            <Chargen />
-          </Route>
-        </Switch>
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/chargen">
+          <Chargen />
+        </Route>
+        <Route path="/api">
+          <API />
+        </Route>
+        <Route path="/charform">
+          <EquipmentForm />
+        </Route>
+      </Switch>
     </div>
   );
 }
