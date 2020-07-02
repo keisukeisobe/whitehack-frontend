@@ -2,7 +2,7 @@ import React, { Component, ComponentType, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Header(props: { authenticated: boolean }) {
-  console.log(props.authenticated);
+  console.log(`Props.authenticated is: ${props.authenticated}`);
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <Link className="navbar-brand" to="https://www.reddit.com/r/Whitehack/">
