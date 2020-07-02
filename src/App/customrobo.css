@@ -1,4 +1,9 @@
 /* The sidebar menu */
 body {
-  padding-top: 110px;
+  padding-top: 50px;
+}
+
+.chargenform {
+  padding-left: 50px;
+  padding-bottom: 25px;
 }

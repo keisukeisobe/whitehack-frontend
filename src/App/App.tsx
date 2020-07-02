@@ -60,20 +60,24 @@ function App() {
       <header className="Header">
         <Header authenticated={authenticated} />
       </header>
-      <Switch>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/chargen">
-          <Chargen />
-        </Route>
-        <Route path="/api">
-          <API />
-        </Route>
-        <Route path="/charform">
-          <EquipmentForm />
-        </Route>
-      </Switch>
+      <body>
+        <div className="container">
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/chargen">
+              <Chargen />
+            </Route>
+            <Route path="/api">
+              <API />
+            </Route>
+            <Route path="/charform">
+              <EquipmentForm />
+            </Route>
+          </Switch>
+        </div>
+      </body>
     </div>
   );
 }
