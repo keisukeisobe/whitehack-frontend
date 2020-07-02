@@ -6,6 +6,7 @@ import "./bootstrap.min.css";
 import "./customrobo.css";
 import Header from "../Header/Header";
 import About from "../Pages/about";
+import Login from '../Pages/Login';
 import Chargen from "../Pages/chargen";
 import API from "../Pages/api";
 import EquipmentForm from "../Pages/charform";
@@ -63,6 +64,9 @@ function App() {
       <Switch>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="/chargen">
           <Chargen />

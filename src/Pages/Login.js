@@ -27,8 +27,17 @@ function Login(){
   };
 
     return (
-      <form>
-        
+      <form className='login-form' onSubmit={handleSubmitJwtAuth}>
+        <div className='user_name'>
+          <label htmlFor='LoginFormUserName'></label>
+          <input className='input-username' require='true' name='username' id='LoginFormUserName' placeholder='username'></input> 
+        </div>
+        <div className='password'>
+          <label htmlFor='LoginFormPassword'>
+          </label>
+          <input className='input-password' require='true' name='password' type='password' id='LoginFormPassword' placeholder='password'></input>
+        </div>
+        <button className='login-button' type='submit'>Login</button>
       </form>
     );
 }
