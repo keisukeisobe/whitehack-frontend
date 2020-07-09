@@ -65,7 +65,7 @@ function App() {
         <Route path="/about">
           <About />
         </Route>
-        <Route path="/login">
+        <Route exact path="/login" render={props => authenticated ? <Redirect to ={'/'}/> : <Login />}>
           <Login />
         </Route>
         <Route path="/chargen">

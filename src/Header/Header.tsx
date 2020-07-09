@@ -1,5 +1,6 @@
 import React, { Component, ComponentType, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import './Header.css';
 
 function Header(props: { authenticated: boolean }) {
   console.log(`Props.authenticated is: ${props.authenticated}`);
@@ -55,18 +56,18 @@ function Header(props: { authenticated: boolean }) {
         </ul>
 
         <ul className="navbar-nav navbar-nav mt-2 mt-md-0">
-          <li className="nav-item">
+          <li className={`nav-item ${props.authenticated && "hidden"}`}>
             <Link className="nav-link" to="/login">
               Login
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/login">
+            <Link className="nav-link" to="/profile">
               Profile
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/login">
+            <Link className="nav-link" to="/">
               Logout
             </Link>
           </li>
