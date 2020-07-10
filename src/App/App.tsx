@@ -5,6 +5,7 @@ import "./App.css";
 import "./bootstrap.min.css";
 import "./customrobo.css";
 import Header from "../Header/Header";
+import Characters from "../Characters/Characters";
 import About from "../Pages/about";
 import Login from '../Pages/Login';
 import Chargen from "../Pages/chargen";
@@ -76,6 +77,9 @@ function App() {
         </Route>
         <Route path="/charform">
           <EquipmentForm />
+        </Route>
+        <Route path="/characters">
+          <Characters />
         </Route>
       </Switch>
     </div>
