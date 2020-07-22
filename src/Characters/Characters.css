@@ -1,3 +1,26 @@
 .character-list {
   list-style-type: none;
+  text-align: left;
 }
+
+.character-box {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px;
+}
+
+.character-name {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.character-details {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.character-link {
+  text-decoration: none !important;
+}
+

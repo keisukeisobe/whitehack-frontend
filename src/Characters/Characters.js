@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import TokenService from '../services/token-service';
 import config from '../config'
 import './Characters.css';
@@ -34,9 +35,14 @@ function Characters(){
         {characters.map(character => {
           console.log(character);
           return (
-            <li key={character.id}>
-              {`${character.charactername}, The ${character.characterclass}`}
-            </li>
+            <Link className="character-link" to={`/characters/${character.id}`}>
+              <li key={character.id} className="character-box">
+                <p className="character-name">{character.charactername}</p>
+                <p className="character-details">
+                  The {character.characterclass} | Level {character.characterlevel}
+                </p>
+              </li>
+            </Link>
           )
         })}        
       </ul>
