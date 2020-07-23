@@ -39,7 +39,7 @@ function Characters(){
               <li key={character.id} className="character-box">
                 <p className="character-name">{character.charactername}</p>
                 <p className="character-details">
-                  The {character.characterclass} | Level {character.characterlevel}
+                  The {character.characterclass} | Level {character.characterlevel} | HP: {character.hp} | AV: {character.attackvalue} | ST: {character.savingthrow} | STR: {character.strength} | DEX: {character.dexterity} | CON: {character.constitution} | INT: {character.intelligence} | CHA: {character.charisma} | WIS: {character.wisdom} | MOVE: {character.movement} | LANG: {character.languages}
                 </p>
               </li>
             </Link>
