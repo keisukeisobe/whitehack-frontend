@@ -6,6 +6,7 @@ import "./bootstrap.min.css";
 import "./customrobo.css";
 import Header from "../Header/Header";
 import Characters from "../Characters/Characters";
+import Character from "../Character/Character";
 import About from "../Pages/about";
 import Login from '../Pages/Login';
 import Chargen from "../Pages/chargen";
@@ -63,23 +64,26 @@ function App() {
         <Header authenticated={authenticated} />
       </header>
       <Switch>
-        <Route path="/about">
+        <Route exact path="/about">
           <About />
         </Route>
         <Route exact path="/login" render={props => authenticated ? <Redirect to ={'/'}/> : <Login />}>
           <Login />
         </Route>
-        <Route path="/chargen">
+        <Route exact path="/chargen">
           <Chargen />
         </Route>
-        <Route path="/api">
+        <Route exact path="/api">
           <API />
         </Route>
-        <Route path="/charform">
+        <Route exact path="/charform">
           <EquipmentForm />
         </Route>
-        <Route path="/characters">
+        <Route exact path="/characters">
           <Characters />
+        </Route>
+        <Route exact path="/characters/:character_id">
+          <Character />
         </Route>
       </Switch>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import TokenService from '../services/token-service';
-import config from '../config'
+import config from '../config';
 import './Characters.css';
 
 function Characters(){
@@ -31,14 +31,14 @@ function Characters(){
 
   const renderCharacterList = () => {
     return (
-      <ul className="character-list">
+      <ul className="characters-list">
         {characters.map(character => {
           console.log(character);
           return (
-            <Link className="character-link" to={`/characters/${character.id}`}>
-              <li key={character.id} className="character-box">
-                <p className="character-name">{character.charactername}</p>
-                <p className="character-details">
+            <Link className="characters-link" to={`/characters/${character.id}`}>
+              <li key={character.id} className="characters-box">
+                <p className="characters-name">{character.charactername}</p>
+                <p className="characters-details">
                   The {character.characterclass} | Level {character.characterlevel} | HP: {character.hp} | AV: {character.attackvalue} | ST: {character.savingthrow} | STR: {character.strength} | DEX: {character.dexterity} | CON: {character.constitution} | INT: {character.intelligence} | CHA: {character.charisma} | WIS: {character.wisdom} | MOVE: {character.movement} | LANG: {character.languages}
                 </p>
               </li>
@@ -50,7 +50,7 @@ function Characters(){
   }
 
   return (
-    <div className="characters-container">
+    <div>
       <h2>Characters</h2>
       {renderCharacterList()}
     </div>
