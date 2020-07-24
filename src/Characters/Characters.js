@@ -35,7 +35,7 @@ function Characters(){
         {characters.map(character => {
           console.log(character);
           return (
-            <Link className="characters-link" to={`/characters/${character.id}`}>
+            <Link key={character.id} className="characters-link" to={`/characters/${character.id}`}>
               <li key={character.id} className="characters-box">
                 <p className="characters-name">{character.charactername}</p>
                 <p className="characters-details">

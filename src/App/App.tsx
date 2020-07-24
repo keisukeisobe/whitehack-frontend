@@ -56,19 +56,19 @@ function App() {
     } else {
       setAuthenticated(false);
     }
-  }, []);
+  }, [authenticated]);
 
   return (
     <div className="App">
       <header className="Header">
-        <Header authenticated={authenticated} />
+        <Header authenticated={authenticated} setAuthenticated={setAuthenticated} />
       </header>
       <Switch>
         <Route exact path="/about">
           <About />
         </Route>
         <Route exact path="/login" render={props => authenticated ? <Redirect to ={'/'}/> : <Login />}>
-          <Login />
+          <Login setAuthenticated={setAuthenticated} />
         </Route>
         <Route exact path="/chargen">
           <Chargen />
