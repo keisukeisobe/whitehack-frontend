@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+import {useHistory} from 'react-router-dom';
 import TokenService from '../services/token-service';
 import AuthApiService from '../services/auth-api-service';
 
-function Login(){  
+function Login(props){  
+  let history = useHistory();
   const handleLoginSuccess = (user_id) => {
-    const { history } = this.props;
-    history.push('/');
+    history.push('/characters');
+    props.setAuthenticated(true);
   };
 
   const handleSubmitJwtAuth = (event) => {

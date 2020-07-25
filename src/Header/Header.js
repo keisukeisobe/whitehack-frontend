@@ -1,8 +1,16 @@
 import React, { Component, ComponentType, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import TokenService from '../services/token-service';
+import { Link, useHistory } from "react-router-dom";
 import './Header.css';
 
-function Header(props: { authenticated: boolean }) {
+function Header(props) {
+  const history = useHistory();
+  const handleLogOut = () => {
+    TokenService.clearAuthToken();
+    props.setAuthenticated(false);
+    history.push('/');
+  }
+
   console.log(`Props.authenticated is: ${props.authenticated}`);
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -66,8 +74,8 @@ function Header(props: { authenticated: boolean }) {
               Profile
             </Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/">
+          <li className={`nav-item ${!props.authenticated && "hidden"}`}>
+            <Link className="nav-link" to="/login" onClick={handleLogOut}>
               Logout
             </Link>
           </li>
